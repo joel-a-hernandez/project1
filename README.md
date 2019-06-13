@@ -1,2 +1,2 @@
 # project1
-Projecyt#1
+Project#1
