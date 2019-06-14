@@ -1,5 +1,8 @@
+// This function handles events where one button is clicked
 $("#submit-btn").on("click", function(event) {
     event.preventDefault();
+
+// Function for dumping the JSON content for each button into the div
 
 function displayApiData() {
     var location = $("#userInput").val().trim();
@@ -18,6 +21,6 @@ function displayApiData() {
     });
 
     }
-
+// displaying the event info
     displayApiData();
 });
