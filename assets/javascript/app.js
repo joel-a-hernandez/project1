@@ -34,9 +34,31 @@ function initMap(latLng) {
   }
 $(document).on("click","#submit-btn", function(event) {
     event.preventDefault();
-    var location=$("#userInput").val();
-    console.log("Location:::"+location);
-    openconnection(location);
+    getMap();
+    displayApiData();
+});
+
+    function getMap(){
+        var location=$("#userInput").val();
+        console.log("Location:::"+location);
+        openconnection(location);
+    }
+    function displayApiData() {
+        var location = $("#userInput").val().trim();
+        var queryURL = "https://app.ticketmaster.com/discovery/v2/events?size=5&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0&locale=*&city=(" + location + ")";
+            
+     
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response) {
+            var response = response._embedded;
+            console.log(response)
+            for (var i = 0; i < response.events.length; i++){
+            console.log(response.events[i])
+            }
+        
+
 
    
 });
