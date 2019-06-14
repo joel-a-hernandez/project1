@@ -12,3 +12,19 @@ form input{
 #userInput{
     text-align: center;
 }
+/* Added by Jyoti for the map height and width */
+#mapArea {
+    align-content: center;
+    height:300px;
+    width:400px;
+    background-color: white;
+    margin-left:20px;
+    margin-top:20px;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  /* Added by Jyoti */
+  html, body {
+    height: 200%;
+    margin: 0;
+    padding: 0;
+  }
