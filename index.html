@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="initial-scale=1.0">
     <title>Eat, Drink, Travel</title>
      <!-- Favicon -->
     <link rel='icon' href='assets/images/favicon.jpg' type='image/x-icon'/ >
     <!-- Reset CSS-->
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
     <!-- Bootstrap CDN-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     <!-- Jquery -->
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Firebase References -->
     <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
     <!-- Moment.js -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 </head>
+
 <body>
 
     <div class="jumbotron jumbotron-fluid">
@@ -32,45 +35,43 @@
     </div>
 
     <div class="container text-center">
-         <div class="row">
-            <div class="col id="startDate">
+        <div class="row">
+            <div class="col" id="startDate">
                 <label for="start">Start date:</label>
 
-                <input type="date" id="start" name="trip-start"
-                    value="yyyy-mm-dd"
-                    min="2019-06-13" max="2020-06-13">
-                  </div>
-            
-                  <div class="col id="endDate">
+                <input type="date" id="start" name="trip-start" value="YYYY-MM-DD" min="2019-06-13" max="2020-06-13">
+            </div>
+
+            <div class="col" id="endDate">
                 <label for="start">End Date:</label>
 
-                <input type="date" id="start" name="trip-start"
-                     value="yyyy-mm-dd"
-                    min="2019-06-31" max="2020-06-13">
+                <input type="date" id="start" name="trip-start" value="YYYY-MM-DD" min="2019-06-31" max="2020-06-13">
+            </div>
+            
         </div>
-    </div>
-        
 
-    <form class="city-input text-center">
-        <input type="text" id="userInput" placeholder="Search Your City Here">
-         <button type="submit" id="submit-btn" class="btn btn-light">Submit</button>
-     </form>
 
-	<div class="container">
-        <div class="row" id="eventArea"></div>
-        <div class="row" id="mapArea"></div>
-    </div>
-
-    <div class="container">
+        <form class="city-input text-center">
+            <input type="text" id="userInput" placeholder="Search Your City Here">
+            <button type="submit" id="submit-btn" class="btn btn-light">Submit</button>
+        </form>
+        <div class="container">
             <div class="row">
-              <div class="col id="eventArea>
-                1 of 2
-              </div>
-              <div class="col id="mapArea">
-                2 of 2
-    </div>
-</div>
-    
-    <script src="assets/javascript/app.js"></script>
+
+                <div class="col" id="eventArea">
+                    1 of 2
+                </div>
+                <div class="col" id="mapArea">
+                   
+                </div>
+                
+            </div>
+
+            
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaVsTVa6zgCnSikWoTfAh-MN4efnZ0ivs"async defer></script>
+            <script src="assets/javascript/app.js"></script>
+
+
 </body>
+
 </html>
