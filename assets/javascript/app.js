@@ -34,6 +34,7 @@ function initMap(latLng) {
 }
 $(document).on("click", "#submit-btn", function (event) {
     event.preventDefault();
+    $("#eventArea").empty();
     getMap();
     displayApiData();
 });
@@ -54,9 +55,27 @@ function displayApiData() {
     }).then(function (response) {
         var response = response._embedded;
         console.log(response)
-        for (var i = 0; i < response.events.length; i++) {
-            console.log(response.events[i])
-        }
+        for (var i = 0; i < response.events.length; i++){
+        console.log(response.events[i])
 
+        var eventDiv = $("<div>");
+        eventDiv.text(response.events[i].name)
+
+        for (var j = 0; j < response.events[i].images.length; j++) {
+            const element = response.events[i].images[j];
+            if (element.ratio === "4_3"){
+                var imageDiv = $("<img>");
+                imageDiv.attr("src",element.url);
+                eventDiv.append(imageDiv);
+                break;
+            }
+            console.log(element.url);  
+        }
+        $("#eventArea").prepend(eventDiv);
+        
+        }  
+         
     });
-}
+
+    }
+    
