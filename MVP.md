@@ -1,14 +1,10 @@
-#project1
-Project#1
-
-
 MVP
 ------------
 General Idea
-Provide an app for users to find events near their travel destination
+Provide an app for users to find events in their travel destination for the dates they will be in that particular city
 
 Target Audience
-Users who plan to travel to a city and would like to see what is happening during their travel dates
+Users who plan to travel to a city and would like to see what eventd are happening
 
 Primary Problem
 Users need help finding the best things to do during their travel dates

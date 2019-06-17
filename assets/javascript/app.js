@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-// This function handles events where one button is clicked
-$("#submit-btn").on("click", function(event) {
-=======
 // create a open function for calling Ajax
 function openconnection(location) {
     var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=AIzaSyAaVsTVa6zgCnSikWoTfAh-MN4efnZ0ivs";
@@ -37,22 +33,17 @@ function initMap(latLng) {
     });
 }
 $(document).on("click", "#submit-btn", function (event) {
->>>>>>> a0c84f96626b0e5a5ec6565b2647ff64c35eb659
     event.preventDefault();
+    $("#eventArea").empty();
     getMap();
     displayApiData();
 });
 
-<<<<<<< HEAD
-// Function for dumping the JSON content for each button into the div
-
-=======
 function getMap() {
     var location = $("#userInput").val();
     console.log("Location:::" + location);
     openconnection(location);
 }
->>>>>>> a0c84f96626b0e5a5ec6565b2647ff64c35eb659
 function displayApiData() {
     var location = $("#userInput").val().trim();
     var queryURL = "https://app.ticketmaster.com/discovery/v2/events?size=5&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0&locale=*&city=(" + location + ")";
@@ -64,16 +55,26 @@ function displayApiData() {
     }).then(function (response) {
         var response = response._embedded;
         console.log(response)
-        for (var i = 0; i < response.events.length; i++) {
-            console.log(response.events[i])
-        }
+        for (var i = 0; i < response.events.length; i++){
+        console.log(response.events[i])
 
-<<<<<<< HEAD
-    }
-// displaying the event info
-    displayApiData();
-});
-=======
+        var eventDiv = $("<div>");
+        eventDiv.text(response.events[i].name)
+
+        for (var j = 0; j < response.events[i].images.length; j++) {
+            const element = response.events[i].images[j];
+            if (element.ratio === "4_3"){
+                var imageDiv = $("<img>");
+                imageDiv.attr("src",element.url);
+                eventDiv.append(imageDiv);
+                break;
+            }
+            console.log(element.url);  
+        }
+        $("#eventArea").prepend(eventDiv);
+        
+        }  
+         
     });
-}
->>>>>>> a0c84f96626b0e5a5ec6565b2647ff64c35eb659
+
+    }
