@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 4796b382532e6b6f0a1605c418bb8e18bd77da29
 // create a open function for calling Ajax
 function openconnection(location) {
     var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=AIzaSyAaVsTVa6zgCnSikWoTfAh-MN4efnZ0ivs";
@@ -37,21 +33,14 @@ function initMap(latLng) {
     });
 }
 $(document).on("click", "#submit-btn", function (event) {
-<<<<<<< HEAD
-=======
-
->>>>>>> 4796b382532e6b6f0a1605c418bb8e18bd77da29
     event.preventDefault();
     $("#eventArea").empty();
     getMap();
     displayApiData();
 });
 
-<<<<<<< HEAD
-=======
 // Function for dumping the JSON content for each button into the div
 
->>>>>>> 4796b382532e6b6f0a1605c418bb8e18bd77da29
 function getMap() {
     var location = $("#userInput").val();
     console.log("Location:::" + location);
@@ -76,7 +65,7 @@ function displayApiData() {
         for (var i = 0; i < response.events.length; i++){
         console.log(response.events[i])
 
-<<<<<<< HEAD
+
     // display event name and image
 
         var eventDiv = $("<div>");
@@ -86,10 +75,6 @@ function displayApiData() {
        
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 4796b382532e6b6f0a1605c418bb8e18bd77da29
         for (var j = 0; j < response.events[i].images.length; j++) {
             const element = response.events[i].images[j];
             if (element.ratio === "4_3"){
@@ -118,23 +103,11 @@ function displayApiData() {
 
         $("#eventArea").prepend(eventDiv);
         
-        }  
+    }  
          
-    });
+});
 
-<<<<<<< HEAD
-    }
-=======
-    });
 }
->>>>>>> 95e5ccd93265d34c2546639e8bbe2114da1ac18d
-=======
-<<<<<<< HEAD
-    }
-=======
-    }
-    
+
 
  
->>>>>>> 4796b382532e6b6f0a1605c418bb8e18bd77da29
->>>>>>> master

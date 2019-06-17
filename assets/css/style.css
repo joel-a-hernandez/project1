@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #home{
 	width: 100%;
 	height: 720px;
@@ -25,38 +24,17 @@
 #title{
     margin-top: 50px;
     margin-bottom: 50px;
-=======
-.jumbotron{
-    background-image: url("../images/193175.jpg");
-    background-repeat: no-repeat;
-    background-size:cover;
-
-}
-.display-4{
-    
 }
 
-.lead{
 
->>>>>>> 95e5ccd93265d34c2546639e8bbe2114da1ac18d
-}
 
-.city-input{
-    margin-top: 50px;
-    margin-bottom: 50px;
-    
-}
-
-form input{
-<<<<<<< HEAD
-    width:40%;
-=======
-    width:70%;
->>>>>>> 95e5ccd93265d34c2546639e8bbe2114da1ac18d
+form input {
+    width: 40%;
     padding: 10px;
     margin-bottom: 20px;
    
 }
+
 
 #userInput{
     text-align: center;
@@ -79,13 +57,9 @@ form input{
     /* height: 200%; */
     margin: 0;
     padding: 0;
-<<<<<<< HEAD
-  }
-=======
+
   }
 
-<<<<<<< HEAD
-=======
   .images {
       padding-right: 2%;
   }
@@ -96,5 +70,4 @@ form input{
     background: rgb(248, 243, 243);
     margin-bottom: 10px;
   }
->>>>>>> 4796b382532e6b6f0a1605c418bb8e18bd77da29
->>>>>>> master
+
