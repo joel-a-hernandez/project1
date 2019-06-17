@@ -71,7 +71,8 @@ form input {
     margin: auto;
   }
   .event-div{
-    background: rgb(248, 243, 243);
+    /* background: rgb(248, 243, 243); */
+    background-color: #f9f9f9;
     margin-bottom: 10px;
   }
 
