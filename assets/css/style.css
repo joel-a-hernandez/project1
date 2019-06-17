@@ -28,3 +28,14 @@ form input{
     margin: 0;
     padding: 0;
   }
+
+  .images {
+      padding-right: 2%;
+  }
+  .text {
+    margin: auto;
+  }
+  .event-div{
+    background: rgb(248, 243, 243);
+    margin-bottom: 10px;
+  }
