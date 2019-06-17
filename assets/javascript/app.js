@@ -1,3 +1,4 @@
+
 // create a open function for calling Ajax
 function openconnection(location) {
     var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=AIzaSyAaVsTVa6zgCnSikWoTfAh-MN4efnZ0ivs";
@@ -33,11 +34,14 @@ function initMap(latLng) {
     });
 }
 $(document).on("click", "#submit-btn", function (event) {
+
     event.preventDefault();
     $("#eventArea").empty();
     getMap();
     displayApiData();
 });
+
+// Function for dumping the JSON content for each button into the div
 
 function getMap() {
     var location = $("#userInput").val();
@@ -62,6 +66,9 @@ function displayApiData() {
         eventDiv.addClass("event-div")
         var eventRow = $("<div>");
         eventRow.addClass("row");
+       
+
+
         for (var j = 0; j < response.events[i].images.length; j++) {
             const element = response.events[i].images[j];
             if (element.ratio === "4_3"){
@@ -96,3 +103,5 @@ function displayApiData() {
 
     }
     
+
+ 
