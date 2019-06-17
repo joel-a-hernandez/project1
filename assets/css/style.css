@@ -13,13 +13,16 @@ form input{
     text-align: center;
 }
 /* Added by Jyoti for the map height and width */
-#mapArea {
+#mapArea.col {
     align-content: center;
     height:300px;
     width:400px;
     background-color: white;
     margin-left:20px;
     margin-top:20px;
+    top: 15%;
+    position: -webkit-sticky;
+    position: sticky !important;
   }
   /* Optional: Makes the sample page fill the window. */
   /* Added by Jyoti */
