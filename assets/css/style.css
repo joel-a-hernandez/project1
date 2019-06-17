@@ -62,13 +62,16 @@ form input{
     text-align: center;
 }
 /* Added by Jyoti for the map height and width */
-#mapArea {
+#mapArea.col {
     align-content: center;
     height:300px;
     width:400px;
     background-color: transparent;
     margin-left:20px;
     margin-top:20px;
+    top: 15%;
+    position: -webkit-sticky;
+    position: sticky !important;
   }
   /* Optional: Makes the sample page fill the window. */
   /* Added by Jyoti */
@@ -76,4 +79,22 @@ form input{
     /* height: 200%; */
     margin: 0;
     padding: 0;
+<<<<<<< HEAD
   }
+=======
+  }
+
+<<<<<<< HEAD
+=======
+  .images {
+      padding-right: 2%;
+  }
+  .text {
+    margin: auto;
+  }
+  .event-div{
+    background: rgb(248, 243, 243);
+    margin-bottom: 10px;
+  }
+>>>>>>> 4796b382532e6b6f0a1605c418bb8e18bd77da29
+>>>>>>> master
