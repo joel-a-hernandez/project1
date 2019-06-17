@@ -26,7 +26,11 @@
     margin-bottom: 50px;
 }
 
-
+.city-input{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
+}
 
 form input {
     width: 40%;
@@ -42,7 +46,7 @@ form input {
 /* Added by Jyoti for the map height and width */
 #mapArea.col {
     align-content: center;
-    height:300px;
+    height:500px;
     width:400px;
     background-color: transparent;
     margin-left:20px;
