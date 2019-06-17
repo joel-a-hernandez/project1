@@ -1,4 +1,3 @@
-
 // create a open function for calling Ajax
 function openconnection(location) {
     var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=AIzaSyAaVsTVa6zgCnSikWoTfAh-MN4efnZ0ivs";
@@ -34,7 +33,6 @@ function initMap(latLng) {
     });
 }
 $(document).on("click", "#submit-btn", function (event) {
-
     event.preventDefault();
     $("#eventArea").empty();
     getMap();
@@ -66,6 +64,9 @@ function displayApiData() {
         console.log(response)
         for (var i = 0; i < response.events.length; i++){
         console.log(response.events[i])
+
+
+    // display event name and image
 
         var eventDiv = $("<div>");
         eventDiv.addClass("event-div")
@@ -102,11 +103,11 @@ function displayApiData() {
 
         $("#eventArea").prepend(eventDiv);
         
-        }  
+    }  
          
-    });
+});
 
-    }
-    
+}
+
 
  
