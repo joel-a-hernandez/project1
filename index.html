@@ -9,11 +9,12 @@
      <!-- Favicon -->
     <link rel='icon' href='assets/images/favicon.jpg' type='image/x-icon'/ >
     <!-- Reset CSS-->
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
+     <!-- CSS -->
+     <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
     <!-- Bootstrap CDN-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Firebase References -->
@@ -27,12 +28,25 @@
 
 <body>
 
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container text-center">
-            <h1 class="display-4">Fluid jumbotron</h1>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-        </div>
-    </div>
+        <header id="home">
+
+                <div class="container text-center">
+                        
+                    <!-- <h1 id="headerText"><span><b>Placeholder</b>Text</span></h1> -->
+                    <h1 class="headerText">Placeholder</h1>
+                    <h3 id="subText">Travel Plans Begin Here</h3>
+                    <a class="btn btn-info"" href="#title" role="button">Start Your Search</a>
+                   
+                </div>
+            </header>
+        
+            <div class="container text-center">
+                    <div class="row">
+                        <div class="col" id="title">
+                    <h4>Choose Your Travel Dates</h4>
+                </div>
+            </div>
+         </div>
 
     <div class="container text-center">
         <div class="row">
@@ -52,10 +66,14 @@
 
     </div>
     
-        <form class="city-input text-center">
+       <form class="city-input text-center">
             <input type="text" id="userInput" placeholder="Search Your City Here">
-            <button type="submit" id="submit-btn" class="btn btn-light">Submit</button>
+            <!-- <button type="submit" id="submit-btn" class="btn btn-light">Submit</button> -->
+       </br>
+            <button type="submit" id="submit-btn" class="btn btn-info">Submit</button>
         </form>
+    
+        
         <div class="container">
             <div class="row">
 
@@ -64,9 +82,13 @@
                 </div>
                 <div class="col" id="mapArea">
                    
-                </div>
+            </div>
                 
             </div>
+
+    
+
+ 
 
             
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaVsTVa6zgCnSikWoTfAh-MN4efnZ0ivs"async defer></script>
