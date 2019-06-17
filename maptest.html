@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        align-content: center;
+        height:300px;
+        width:400px;
+        background-color: grey;
+        margin-left:20px;
+        margin-top:20px;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 200%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    
+    <script src="https://ticketmaster-api-staging.github.io/products-and-docs/widgets/map/1.0.0/lib/main-widget.js"></script>
+  </head>
+  <body>
+      <div>
+          <h1>Enter your city</h1>
+          <input id="city" type="text" placeholder="Enter the city">
+          <button  id="submitbt" type="submit">Submit</button>
+      </div>
+    <div id="map"></div>
+    <script>
+    function openconnection(location){
+        var queryURL="https://maps.googleapis.com/maps/api/geocode/json?address="+location+"&key=AIzaSyAaVsTVa6zgCnSikWoTfAh-MN4efnZ0ivs";
+           
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+     }).then(function (response) {
+    console.log(response)
+        initMap(response.results[0].geometry.location)
+    console.log(response.location);
+     });
+    };
+
+      
+      var map;
+    //   30.505198
+    // lng: -97.8202888
+
+      function initMap(latLng) {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: latLng,
+          zoom: 8,
+          mapTypeControl: true,
+          mapTypeControlOptions: {
+              style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+              position: google.maps.ControlPosition.TOP_CENTER
+          },
+          zoomControl: true,
+          zoomControlOptions: {
+              position: google.maps.ControlPosition.LEFT_CENTER
+          },
+          scaleControl: true,
+          streetViewControl: true,
+          streetViewControlOptions: {
+              position: google.maps.ControlPosition.LEFT_TOP
+          },
+          fullscreenControl: true
+        });
+      }
+ $(document).on("click","#submitbt", function(event) {
+    
+        event.preventDefault();
+        var location=$("#city").val();
+        console.log(location);
+       openconnection(location);
+        // initMap();
+    });
+    
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaVsTVa6zgCnSikWoTfAh-MN4efnZ0ivs"async defer></script>
+  </body>
+</html>
