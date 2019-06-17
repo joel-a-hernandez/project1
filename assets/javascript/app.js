@@ -63,7 +63,10 @@ function displayApiData() {
         console.log(response.events[i])
 
         var eventDiv = $("<div>");
-        eventDiv.text(response.events[i].name)
+        eventDiv.addClass("event-div")
+        var eventRow = $("<div>");
+        eventRow.addClass("row");
+       
 
 
         for (var j = 0; j < response.events[i].images.length; j++) {
@@ -71,11 +74,27 @@ function displayApiData() {
             if (element.ratio === "4_3"){
                 var imageDiv = $("<img>");
                 imageDiv.attr("src",element.url);
-                eventDiv.append(imageDiv);
+                imageDiv.addClass("images col-6")
+                eventRow.append(imageDiv);
                 break;
             }
             console.log(element.url);  
         }
+    
+        var p = $("<p>");
+        var mapButton = $("<button>")
+        
+        
+
+        
+        p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
+        mapButton.text("Locate on map")
+        p.append(mapButton);
+        p.addClass("text col-6")
+        eventRow.append(p);
+        eventDiv.append(eventRow);
+        // eventDiv.append(response.events[i].dates.start.localDate)
+
         $("#eventArea").prepend(eventDiv);
         
         }  
