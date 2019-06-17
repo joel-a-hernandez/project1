@@ -50,7 +50,7 @@ function displayApiData() {
     var location = $("#userInput").val().trim();
     var startDate = $("#start").val().trim();
     console.log(startDate);
-    var queryURL = "https://app.ticketmaster.com/discovery/v2/events?size=5&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0&locale=*&city=" + location + "";
+    var queryURL = "https://app.ticketmaster.com/discovery/v2/events?size=10&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0&locale=*&city=" + location + "";
     // &localStartDateTime=" + startDate + ""
     // locale=*&city=" + location + "
 
