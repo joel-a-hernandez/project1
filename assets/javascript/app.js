@@ -58,8 +58,11 @@ function displayApiData() {
         for (var i = 0; i < response.events.length; i++){
         console.log(response.events[i])
 
+    // display event name and image
+
         var eventDiv = $("<div>");
         eventDiv.text(response.events[i].name)
+
 
         for (var j = 0; j < response.events[i].images.length; j++) {
             const element = response.events[i].images[j];

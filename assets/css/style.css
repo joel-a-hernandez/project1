@@ -1,12 +1,65 @@
+
+#home{
+	width: 100%;
+	height: 680px;
+    background-image:url('../images/193175.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+    color:grey;
+    border-bottom: 8px solid teal;
+}
+
+#headerText{
+    padding-top: 200px;
+	font-size:70px;
+    font-weight:500;
+}
+
+#subText{
+    letter-spacing: 3px;
+}
+
+.header {
+    padding-top: 200px;
+    font-weight: bold;
+    line-height: 1.5;
+ }
+ 
+ .dateStyle {
+    line-height: 1.5;
+ }
+
+#title{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: grey
+}
+
+.btn{
+    margin-top:50px;
+    background-color: teal;
+    
+}
 .city-input{
     margin-top: 50px;
     margin-bottom: 50px;
+    
 }
 
 form input{
-    width:100%;
+    width: 20%;
     padding: 10px;
     margin-bottom: 20px;
+    border-color: teal;
+    border-width: 1px;
+   
+}
+.btn {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    width:20%;    
 }
 
 #userInput{
@@ -17,14 +70,15 @@ form input{
     align-content: center;
     height:300px;
     width:400px;
-    background-color: white;
+    background-color: transparent;
     margin-left:20px;
     margin-top:20px;
   }
   /* Optional: Makes the sample page fill the window. */
   /* Added by Jyoti */
   html, body {
-    height: 200%;
+    /* height: 200%; */
     margin: 0;
     padding: 0;
   }
+
