@@ -58,6 +58,7 @@ function displayApiData() {
         for (var i = 0; i < response.events.length; i++){
         console.log(response.events[i])
 
+<<<<<<< HEAD
     // display event name and image
 
         var eventDiv = $("<div>");
@@ -81,3 +82,7 @@ function displayApiData() {
     });
 
     }
+=======
+    });
+}
+>>>>>>> 95e5ccd93265d34c2546639e8bbe2114da1ac18d

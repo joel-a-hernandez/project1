@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #home{
 	width: 100%;
 	height: 720px;
@@ -24,6 +25,20 @@
 #title{
     margin-top: 50px;
     margin-bottom: 50px;
+=======
+.jumbotron{
+    background-image: url("../images/193175.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+
+}
+.display-4{
+    
+}
+
+.lead{
+
+>>>>>>> 95e5ccd93265d34c2546639e8bbe2114da1ac18d
 }
 
 .city-input{
@@ -33,7 +48,11 @@
 }
 
 form input{
+<<<<<<< HEAD
     width:40%;
+=======
+    width:70%;
+>>>>>>> 95e5ccd93265d34c2546639e8bbe2114da1ac18d
     padding: 10px;
     margin-bottom: 20px;
    
