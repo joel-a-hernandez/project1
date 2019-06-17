@@ -1,46 +1,31 @@
-
 #home{
 	width: 100%;
-	height: 680px;
-    background-image:url('../images/193175.jpg');
+	height: 720px;
+	background:url('../images/193175.jpg') no-repeat;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-    color:grey;
-    border-bottom: 8px solid teal;
+	color:white;
+	border-bottom: 8px solid teal;
 }
-
-#headerText{
+.headerText{
     padding-top: 200px;
 	font-size:70px;
     font-weight:500;
+    color: grey;
 }
 
 #subText{
-    letter-spacing: 3px;
+    padding-bottom: 50px;
+    letter-spacing: 2px;
+    color: gray
 }
-
-.header {
-    padding-top: 200px;
-    font-weight: bold;
-    line-height: 1.5;
- }
- 
- .dateStyle {
-    line-height: 1.5;
- }
 
 #title{
     margin-top: 50px;
     margin-bottom: 50px;
-    color: grey
 }
 
-.btn{
-    margin-top:50px;
-    background-color: teal;
-    
-}
 .city-input{
     margin-top: 50px;
     margin-bottom: 50px;
@@ -48,18 +33,10 @@
 }
 
 form input{
-    width: 20%;
+    width:40%;
     padding: 10px;
     margin-bottom: 20px;
-    border-color: teal;
-    border-width: 1px;
    
-}
-.btn {
-    padding: 10px 20px;
-    font-size: 20px;
-    border-radius: 10px;
-    width:20%;    
 }
 
 #userInput{
@@ -81,4 +58,3 @@ form input{
     margin: 0;
     padding: 0;
   }
-
