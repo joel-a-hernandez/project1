@@ -75,8 +75,14 @@ function displayApiData() {
         }
     
         var p = $("<p>");
+        var mapButton = $("<button>")
+        
+        
 
-        p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name)
+        
+        p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
+        mapButton.text("Locate on map")
+        p.append(mapButton);
         p.addClass("text col-6")
         eventRow.append(p);
         eventDiv.append(eventRow);
