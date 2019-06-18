@@ -216,7 +216,8 @@ function displayApiData() {
                         infoDiv.addClass("info-text")
                         infoDiv.html(date1 + "<br>"  + time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
                         mapButton.text("Locate on Map");
-                        p.prepend(titleDiv);
+                        // p.prepend(titleDiv);
+                        p.prepend(linkName);
                         p.append(infoDiv);
                         p.append(mapButton);
                         p.addClass("text col-6")
@@ -238,14 +239,14 @@ function displayApiData() {
             }
             // p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
             //Added the date and time by jyoti
-            p.html("<br>"  + date1 +","+ "  " + time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
-            p.prepend(linkName);
-            mapButton.text("Locate on map");
-            p.append(mapButton);
-            p.addClass("text col-6")
-            eventRow.append(p);
-            eventDiv.append(eventRow);
-            $("#eventArea").prepend(eventDiv);
+            // p.html("<br>"  + date1 +","+ "  " + time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
+            // p.prepend(linkName);
+            // mapButton.text("Locate on map");
+            // p.append(mapButton);
+            // p.addClass("text col-6")
+            // eventRow.append(p);
+            // eventDiv.append(eventRow);
+            // $("#eventArea").prepend(eventDiv);
 
 
 
