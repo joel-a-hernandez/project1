@@ -45,7 +45,7 @@ $(document).on("click", "#submit-btn", function (event) {
 
     if (empty === "") {
         var p = $("<p>");
-        p.text("Please Enter the City");
+        p.text("*Please Enter the City");
         p.css("color", "red");
         $("#error-input").append(p);
 
@@ -153,6 +153,7 @@ function displayApiData() {
             //  Turns event names into links to ticketmaster.
             var linkName = $("<a>");
             linkName.attr("href", tickets);
+            linkName.addClass("link-name");
             linkName.text(name);
             linkName.attr("target","_blank")
             console.log(tickets);
@@ -212,7 +213,7 @@ function displayApiData() {
                         //Added the date and time by jyoti
                         // p.html("Date: " + date1 + "<br>" + "Time: " + time1 + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
                         titleDiv.addClass("event-title")
-                        titleDiv.html(response.events[i].name + "<br>");
+                        linkName.html(response.events[i].name + "<br>");
                         infoDiv.addClass("info-text")
                         infoDiv.html(date1 + "," + " " + time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
                         mapButton.text("Locate on Map");
