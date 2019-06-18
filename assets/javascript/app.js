@@ -34,6 +34,7 @@ function initMap(latLng) {
         fullscreenControl: true
     });
 }
+$(".hide-row").hide();
 $(document).on("click", "#submit-btn", function (event) {
     event.preventDefault();
     $("#eventArea").empty();
@@ -120,6 +121,7 @@ function getMap() {
 }
 
 function displayApiData() {
+    $(".hide-row").show();
     var location = $("#userInput").val().trim();
     var startDate = $("#startDate").val().trim();
     // Added a code to check  statdate and end date 
