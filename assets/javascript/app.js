@@ -36,6 +36,7 @@ function initMap(latLng) {
 $(document).on("click", "#submit-btn", function (event) {
     event.preventDefault();
     $("#eventArea").empty();
+    // Added by /jyoti to clear or empty the error-input message
     $("#error-input").empty();    
 
     //Added by Jyoti
