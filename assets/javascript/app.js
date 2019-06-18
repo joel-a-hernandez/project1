@@ -176,6 +176,7 @@ function displayApiData() {
             mapButton.addClass("map-button");
             mapButton.attr("id", i);
             var localdate = response.events[i].dates.start.localDate;
+            console.log("Date before conversion::::"+localdate);
             date1 = moment(localdate, "YYYY-MM-DD").format("ddd, MMMM Do");
             // moment($("#train-start").val(),"HH:mm").format("HH:mm");
             console.log("DAte Format::" + date1);
@@ -192,16 +193,13 @@ function displayApiData() {
                         // added a class to the button by Jyoti
                         mapButton.addClass("map-button");
                         mapButton.attr("id", i);
-                        var date=response.events[i].dates.start.localDate;
-                        // moment($("#train-start").val(),"HH:mm").format("HH:mm");
-                        var date1=moment(date,"YYYY-MM-DD").format("ddd, MMMM do");
-                        console.log("DAte Format::"+date1);
-                        var time=response.events[i].dates.start.localTime;
-                        var time1=moment(time,"HH:mm:ss").format("hh:mm A");
-                        console.log("Time value :::::"+time);
+                        // var date=response.events[i].dates.start.localDate;
+                        // var time=response.events[i].dates.start.localTime;
+                        // var time1=moment(time,"HH:mm:ss").format("hh:mm A");
+                        // console.log("Time value :::::"+time);
                         
-                        var time1=moment(time,"HH:mm:ss").format("hh:mm:ss A");
-                        console.log("Time::::"+time1);
+                        // var time1=moment(time,"HH:mm:ss").format("hh:mm:ss A");
+                        // console.log("Time::::"+time1);
                         // p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
                        //Added the date and time by jyoti
                     //    p.html(response.events[i].name + "<br>"  + date1 + "<br>"  + time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
