@@ -1,3 +1,19 @@
+// Configures firebase.
+const firebaseConfig = {
+    apiKey: "AIzaSyDlrxw6U4xrfWQI_ff-T9Sn3FWLk-9n3Sk",
+    authDomain: "eatdrinktravel-25d2f.firebaseapp.com",
+    databaseURL: "https://eatdrinktravel-25d2f.firebaseio.com",
+    projectId: "eatdrinktravel-25d2f",
+    storageBucket: "eatdrinktravel-25d2f.appspot.com",
+    messagingSenderId: "855598110418",
+    appId: "1:855598110418:web:8fe153607ff7c6ec"
+  };
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+// Creates refference for firebase.
+var dataRef = firebase.database();
+
+
 // create a open function for calling Ajax
 function openconnection(location) {
     var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=AIzaSyAaVsTVa6zgCnSikWoTfAh-MN4efnZ0ivs";
@@ -124,9 +140,14 @@ function displayApiData() {
     var startDate = $("#startDate").val().trim();
     // Added a code to check  statdate and end date 
     var endDate = $("#endDate").val().trim();
-    console.log("Gettomg start-date value::" + startDate);
-    console.log("Getting end-date value::" + endDate);
-    var queryURL = "https://app.ticketmaster.com/discovery/v2/events?size=10&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0&locale=*&city=" + location + "&startDateTime=" + startDate + "T12:59:06-05:00&endDateTime=" + endDate + "T12:00:00Z";
+    dataRef.ref().push({
+        City: location,
+        StartDate: startDate,
+        EndDate: endDate
+    });
+    console.log(startDate);
+    console.log(endDate);
+    var queryURL = "https://app.ticketmaster.com/discovery/v2/events?size=10&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0&locale=*&city=" + location + "";
     // &localStartDateTime=" + startDate + ""
     // locale=*&city=" + location + "
     $.ajax({
@@ -187,26 +208,22 @@ function displayApiData() {
                                
                         var p = $("<p>");
                         var titleDiv = $("<div>")
-                        var infoDiv = $("<div>")
                         var mapButton = $("<button>");
                         // added a class to the button by Jyoti
                         mapButton.addClass("map-button");
                         mapButton.attr("id", i);
                         var date=response.events[i].dates.start.localDate;
                         // moment($("#train-start").val(),"HH:mm").format("HH:mm");
-                        console.log(date);
+                        var date1=moment(date,"YYYY-MM-DD").format("ddd, MMMM do");
+                        console.log("DAte Format::"+date1);
                         var time=response.events[i].dates.start.localTime;
                         var time1=moment(time,"HH:mm:ss").format("hh:mm A");
                         console.log("Time value :::::"+time);
                         
-                        var time1=moment(time,"HH:mm:ss").format("hh:mm A");
+                        var time1=moment(time,"HH:mm:ss").format("hh:mm:ss A");
                         console.log("Time::::"+time1);
                         // p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
                        //Added the date and time by jyoti
-                    //    p.html(response.events[i].name + "<br>"  + date1 + "<br>"  + time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
-                        // mapButton.text("Locate on Map");
-                        //Added the date and time by jyoti
-                        // p.html(date1 + "<br>"  + time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
                     //    p.html(response.events[i].name + "<br>"  + date1 +  time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
                         // mapButton.text("Locate on Map");
                         //Added the date and time by jyoti
@@ -247,7 +264,6 @@ function displayApiData() {
             // eventRow.append(p);
             // eventDiv.append(eventRow);
             // $("#eventArea").prepend(eventDiv);
-
 
 
         }
