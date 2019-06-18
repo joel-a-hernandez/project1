@@ -135,7 +135,8 @@ function displayApiData() {
     }).then(function (response) {
         eventObj = response._embedded;
         var response = response._embedded;
-        console.log(response)
+        console.log(response);
+        // opening of for loop
         for (var i = 0; i < response.events.length; i++) {
             console.log(response.events[i])
             // display the event and images
@@ -157,6 +158,7 @@ function displayApiData() {
                     break;
                 }
                 console.log(element.url);
+
             }
             var p = $("<p>");
             var mapButton = $("<button>");
@@ -172,20 +174,54 @@ function displayApiData() {
             var date1;
             var localtime = response.events[i].dates.start.localTime;
 
-            console.log("noSpecific time:::::::::::::" + localtime);
-            if (localtime == 'undefined' || !localtime || localtime.length === 0 || localtime === "") {
+                               
+                        var p = $("<p>");
+                        var titleDiv = $("<div>")
+                        var mapButton = $("<button>");
+                        // added a class to the button by Jyoti
+                        mapButton.addClass("map-button");
+                        mapButton.attr("id", i);
+                        var date=response.events[i].dates.start.localDate;
+                        // moment($("#train-start").val(),"HH:mm").format("HH:mm");
+                        var date1=moment(date,"YYYY-MM-DD").format("ddd, MMMM do");
+                        console.log("DAte Format::"+date1);
+                        var time=response.events[i].dates.start.localTime;
+                        var time1=moment(time,"HH:mm:ss").format("hh:mm A");
+                        console.log("Time value :::::"+time);
+                        
+                        var time1=moment(time,"HH:mm:ss").format("hh:mm:ss A");
+                        console.log("Time::::"+time1);
+                        // p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
+                       //Added the date and time by jyoti
+                    //    p.html(response.events[i].name + "<br>"  + date1 +  time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
+                        // mapButton.text("Locate on Map");
+                        //Added the date and time by jyoti
+                        // p.html("Date: " + date1 + "<br>" + "Time: " + time1 + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
+                        titleDiv.addClass("event-title")
+                        titleDiv.html("Name: " + response.events[i].name + "<br>");
+                        mapButton.text("Locate on map");
+                        p.prepend(titleDiv);
+                        p.append(mapButton);
+                        p.addClass("text col-6")
+                        eventRow.append(p);
+                        eventDiv.append(eventRow);
+                        $("#eventArea").prepend(eventDiv);
+                   
+            console.log("localtime:::::::::::::" + localtime);
+            if(localtime == 'undefined' || !localtime || localtime.length === 0 || localtime === "")
+             {
                 time1 = "TBA";
                 console.log("Time::::" + time1);
 
             } else {
 
-                time1 = moment(localtime, "HH:mm:ss").format("hh:mm:ss A");
+                time1 = moment(localtime, "HH:mm:ss").format("hh:mm A");
                 console.log("Time::::" + time1);
 
             }
             // p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
             //Added the date and time by jyoti
-            p.html("Name: " + response.events[i].name + "<br>" + "Date: " + date1 + "<br>" + "Time: " + time1 + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
+            p.html("Name: " + response.events[i].name + "<br>" + "Date: " + date1 +","+ "  " + time1 + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
             mapButton.text("Locate on map");
             p.append(mapButton);
             p.addClass("text col-6")
@@ -196,7 +232,7 @@ function displayApiData() {
 
 
         }
-
+// closing of main for loop
     });
 }
 //Added by Jyoti
