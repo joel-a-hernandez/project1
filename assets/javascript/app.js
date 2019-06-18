@@ -161,6 +161,7 @@ function displayApiData() {
                 console.log(element.url);
             }                    
                         var p = $("<p>");
+                        var titleDiv = $("<div>")
                         var mapButton = $("<button>");
                         // added a class to the button by Jyoti
                         mapButton.addClass("map-button");
@@ -179,9 +180,12 @@ function displayApiData() {
                         var time1=moment(time,"HH:mm:ss").format("hh:mm:ss A");
                         console.log("Time::::"+time1);
                         // p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
-                       //Added the date and time by jyoti
-                       p.html(response.events[i].name + "<br>"  + date1 + "<br>"  + time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
+                        //Added the date and time by jyoti
+                        p.html("Date: " + date1 + "<br>" + "Time: " + time1 + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
+                        titleDiv.addClass("event-title")
+                        titleDiv.html("Name: " + response.events[i].name + "<br>");
                         mapButton.text("Locate on map");
+                        p.prepend(titleDiv);
                         p.append(mapButton);
                         p.addClass("text col-6")
                         eventRow.append(p);
