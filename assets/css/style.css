@@ -6,24 +6,26 @@
 	background-position: center;
 	background-size: cover;
 	color:white;
-	border-bottom: 8px solid teal;
+	border-bottom: 8px solid #15a2b8;
 }
 .headerText{
     padding-top: 200px;
 	font-size:70px;
     font-weight:500;
-    color: grey;
+    color: #15a2b8;
+    letter-spacing: 1px;
 }
 
 #subText{
     padding-bottom: 50px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     color: gray
 }
 
 #title{
     margin-top: 50px;
     margin-bottom: 50px;
+    color: grey;
 }
 
 .city-input{
@@ -65,20 +67,39 @@ form input {
   }
 
   .images {
-      padding-right: 2%;
+      padding:10px 10px;
+      padding-left: 2%;
   }
   .text {
     margin: auto;
   }
   .event-div{
-    /* background: rgb(248, 243, 243); */
     background-color: white;
     margin-bottom: 10px;
+    
+  }
+
+
+  .event-div:hover{
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+  .map-button{
+    background-color: #15a2b8;
+    color: white;
+    border-color: #15a2b8;
+    
   }
 
   /* Added a property by jyoti  to display the error msg when a text field is empty*/
  #error-input{
     text-align:center;
     font-weight: bold;
+ }
+
+ .page-footer{
+     background-color: #15a2b8;
+     padding: 20px;
+     width: 100%;
  }
 
