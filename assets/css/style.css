@@ -34,6 +34,9 @@
     
 }
 
+#eventArea{
+    padding-bottom: 40px;
+}
 
 
 form input {
@@ -45,7 +48,7 @@ form input {
 
 .link-name{
     font-weight: bold;
-    font-size: 28px;
+    font-size: 24px;
     color: black;
     
 }
