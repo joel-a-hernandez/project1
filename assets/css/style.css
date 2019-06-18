@@ -43,8 +43,11 @@ form input {
    
 }
 
-.event-title{
+.link-name{
     font-weight: bold;
+    font-size: 28px;
+    color: black;
+    
 }
 
 .info-text {
@@ -99,6 +102,8 @@ form input {
     background-color: #15a2b8;
     color: white;
     border-color: #15a2b8;
+    border-radius: 0.25rem;
+    padding: .375rem .75rem;
     
   }
 
