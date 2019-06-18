@@ -170,6 +170,7 @@ function displayApiData() {
                         var date1=moment(date,"YYYY-MM-DD").format("MM-DD-YYYY");
                         console.log("DAte Format::"+date1);
                         var time=response.events[i].dates.start.localTime;
+                        var time1=moment(time,"HH:mm:ss").format("hh:mm A");
                         console.log("Time value :::::"+time);
                         if(time===null || "")
                         {
@@ -179,7 +180,7 @@ function displayApiData() {
                         console.log("Time::::"+time1);
                         // p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
                        //Added the date and time by jyoti
-                       p.html("Name: " + response.events[i].name + "<br>" + "Date: " + date1 + "<br>" + "Time: " + time1 + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
+                       p.html(response.events[i].name + "<br>"  + date1 + "<br>"  + time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
                         mapButton.text("Locate on map");
                         p.append(mapButton);
                         p.addClass("text col-6")
