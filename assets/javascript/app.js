@@ -36,6 +36,8 @@ function initMap(latLng) {
 $(document).on("click", "#submit-btn", function (event) {
     event.preventDefault();
     $("#eventArea").empty();
+    $("#error-input").empty();    
+
     //Added by Jyoti
    debugger;
   var empty= document.forms["form1"]["text1"].value;
