@@ -38,26 +38,24 @@ $(document).on("click", "#submit-btn", function (event) {
     event.preventDefault();
     $("#eventArea").empty();
     // Added by /jyoti to clear or empty the error-input message
-    $("#error-input").empty();    
+    $("#error-input").empty();
 
     //Added by Jyoti
-   debugger;
-  var empty= document.forms["form1"]["text1"].value;
+    var empty = document.forms["form1"]["text1"].value;
 
-    if(empty==="")
-    {
-         var p=$("<p>");
-         p.text("Please Enter the City");
-         p.css("color","red");  
-         $("#error-input").append(p);    
-              
+    if (empty === "") {
+        var p = $("<p>");
+        p.text("Please Enter the City");
+        p.css("color", "red");
+        $("#error-input").append(p);
+
     }
-    else{
+    else {
         getMap();
-    displayApiData();
+        displayApiData();
     }
-    
-    
+
+
 });
 var locArr = [];
 //Created this event to locate on the map by click on the button
@@ -67,7 +65,7 @@ $(document).on("click", ".map-button", function (event) {
     event.preventDefault();
     var idClicked = $(this).attr("id");
     console.log(eventObj.events[idClicked].name);
-    var name=eventObj.events[idClicked].name;
+    var name = eventObj.events[idClicked].name;
     var eventAddress = eventObj.events[idClicked]._embedded.venues[0].address.line1;
     console.log(eventAddress);
     var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + eventAddress + "&key=AIzaSyAaVsTVa6zgCnSikWoTfAh-MN4efnZ0ivs";
@@ -79,13 +77,13 @@ $(document).on("click", ".map-button", function (event) {
         var myLatLng = response.results[0].geometry.location;
         console.log(myLatLng);
         //Added for windowinfo of the event on the map by Jyoti
-        var contentString ='<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h6 id="firstHeading" class="firstHeading">'+name+'<br>'+eventAddress+'</h6>'+'</div>';
+        var contentString = '<div id="content">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h6 id="firstHeading" class="firstHeading">' + name + '<br>' + eventAddress + '</h6>' + '</div>';
         var infowindow = new google.maps.InfoWindow({
             content: contentString
-          });
+        });
         var marker = new google.maps.Marker({
             position: myLatLng,
             // animation:google.maps.Animation.BOUNCE,
@@ -96,20 +94,20 @@ $(document).on("click", ".map-button", function (event) {
         });
         map.setCenter(marker.getPosition())
         markerArr.push(infowindow);
-        google.maps.event.addListener(marker,'click', function(e) {
+        google.maps.event.addListener(marker, 'click', function (e) {
             for (let i = 0; i < markerArr.length; i++) {
                 markerArr[i].close();
             }
             infowindow.open(map, marker);
             var pos = map.getZoom();
-             map.setZoom(10);
+            map.setZoom(10);
             map.setCenter(marker.getPosition());
-            window.setTimeout(function() {map.setZoom(pos);},3000);   
-            
-          
-          });
-        
-          
+            window.setTimeout(function () { map.setZoom(pos); }, 3000);
+
+
+        });
+
+
     });
 });
 
@@ -125,7 +123,7 @@ function displayApiData() {
     var location = $("#userInput").val().trim();
     var startDate = $("#startDate").val().trim();
     // Added a code to check  statdate and end date 
-    var endDate=$("#endDate").val().trim();
+    var endDate = $("#endDate").val().trim();
     console.log(startDate);
     console.log(endDate);
     var queryURL = "https://app.ticketmaster.com/discovery/v2/events?size=10&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0&locale=*&city=" + location + "";
@@ -137,10 +135,11 @@ function displayApiData() {
     }).then(function (response) {
         eventObj = response._embedded;
         var response = response._embedded;
-        console.log(response)
+        console.log(response);
+        // opening of for loop
         for (var i = 0; i < response.events.length; i++) {
             console.log(response.events[i])
-// display the event and images
+            // display the event and images
             var eventDiv = $("<div>");
             eventDiv.addClass("event-div")
             var eventRow = $("<div>");
@@ -159,7 +158,23 @@ function displayApiData() {
                     break;
                 }
                 console.log(element.url);
-            }                    
+
+            }
+            var p = $("<p>");
+            var mapButton = $("<button>");
+            // added a class to the button by Jyoti
+            mapButton.addClass("map-button");
+            mapButton.attr("id", i);
+            var localdate = response.events[i].dates.start.localDate;
+            date1 = moment(localdate, "YYYY-MM-DD").format("ddd, MMMM Do");
+            // moment($("#train-start").val(),"HH:mm").format("HH:mm");
+            console.log("DAte Format::" + date1);
+            //Checking for the time is displayed in the api a making a condition according to that.by Jyoti
+            var time1;
+            var date1;
+            var localtime = response.events[i].dates.start.localTime;
+
+                               
                         var p = $("<p>");
                         var titleDiv = $("<div>")
                         var mapButton = $("<button>");
@@ -168,42 +183,58 @@ function displayApiData() {
                         mapButton.attr("id", i);
                         var date=response.events[i].dates.start.localDate;
                         // moment($("#train-start").val(),"HH:mm").format("HH:mm");
-                        var date1=moment(date,"YYYY-MM-DD").format("MM-DD-YYYY");
+                        var date1=moment(date,"YYYY-MM-DD").format("ddd, MMMM do");
                         console.log("DAte Format::"+date1);
                         var time=response.events[i].dates.start.localTime;
                         var time1=moment(time,"HH:mm:ss").format("hh:mm A");
                         console.log("Time value :::::"+time);
-                        if(time===null || "")
-                        {
-                            time="00:00:00";
-                        }
+                        
                         var time1=moment(time,"HH:mm:ss").format("hh:mm:ss A");
                         console.log("Time::::"+time1);
                         // p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
-<<<<<<< HEAD
                        //Added the date and time by jyoti
-                       p.html(response.events[i].name + "<br>"  + date1 + "<br>"  + time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
-                        mapButton.text("Locate on Map");
-=======
+                    //    p.html(response.events[i].name + "<br>"  + date1 +  time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
+                        // mapButton.text("Locate on Map");
                         //Added the date and time by jyoti
-                        p.html("Date: " + date1 + "<br>" + "Time: " + time1 + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
+                        // p.html("Date: " + date1 + "<br>" + "Time: " + time1 + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
                         titleDiv.addClass("event-title")
                         titleDiv.html("Name: " + response.events[i].name + "<br>");
                         mapButton.text("Locate on map");
                         p.prepend(titleDiv);
->>>>>>> master
                         p.append(mapButton);
                         p.addClass("text col-6")
                         eventRow.append(p);
                         eventDiv.append(eventRow);
                         $("#eventArea").prepend(eventDiv);
-                        
-        
+                   
+            console.log("localtime:::::::::::::" + localtime);
+            if(localtime == 'undefined' || !localtime || localtime.length === 0 || localtime === "")
+             {
+                time1 = "TBA";
+                console.log("Time::::" + time1);
 
-                    }
+            } else {
 
-});
-    }
+                time1 = moment(localtime, "HH:mm:ss").format("hh:mm A");
+                console.log("Time::::" + time1);
+
+            }
+            // p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
+            //Added the date and time by jyoti
+            p.html("Name: " + response.events[i].name + "<br>" + "Date: " + date1 +","+ "  " + time1 + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
+            mapButton.text("Locate on map");
+            p.append(mapButton);
+            p.addClass("text col-6")
+            eventRow.append(p);
+            eventDiv.append(eventRow);
+            $("#eventArea").prepend(eventDiv);
+
+
+
+        }
+// closing of main for loop
+    });
+}
 //Added by Jyoti
 function geocodePlaceId(geocoder, map, infowindow) {
     console.log("LocalArray in set MAp()" + JSON.stringify(locArr));
