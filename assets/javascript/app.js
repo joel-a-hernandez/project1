@@ -144,9 +144,19 @@ function displayApiData() {
             eventDiv.addClass("event-div")
             var eventRow = $("<div>");
             eventRow.addClass("row");
+            var tickets = response.events[i].url;
             var name = response.events[i].name;
             var loc = response.events[i]._embedded.venues[0].address;
             var latLng = response.events[i]._embedded.venues[0].location;
+            console.log(name);
+
+            //  Turns event names into links to ticketmaster.
+            var linkName = $("<a>");
+            linkName.attr("href", tickets);
+            linkName.text("Name: " + name);
+            linkName.attr("target","_blank")
+            console.log(tickets);
+            
             console.log("address:" + JSON.stringify(loc));
             for (var j = 0; j < response.events[i].images.length; j++) {
                 const element = response.events[i].images[j];
@@ -221,7 +231,8 @@ function displayApiData() {
             }
             // p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
             //Added the date and time by jyoti
-            p.html("Name: " + response.events[i].name + "<br>" + "Date: " + date1 +","+ "  " + time1 + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
+            p.html("<br>" + "Date: " + date1 +","+ "  " + time1 + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
+            p.prepend(linkName);
             mapButton.text("Locate on map");
             p.append(mapButton);
             p.addClass("text col-6")
