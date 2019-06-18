@@ -214,7 +214,7 @@ function displayApiData() {
                         titleDiv.addClass("event-title")
                         titleDiv.html(response.events[i].name + "<br>");
                         infoDiv.addClass("info-text")
-                        infoDiv.html(date1 + "<br>"  + time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
+                        infoDiv.html(date1 + "," + " " + time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
                         mapButton.text("Locate on Map");
                         // p.prepend(titleDiv);
                         p.prepend(linkName);
