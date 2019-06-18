@@ -171,6 +171,7 @@ function displayApiData() {
                         var date1=moment(date,"YYYY-MM-DD").format("MM-DD-YYYY");
                         console.log("DAte Format::"+date1);
                         var time=response.events[i].dates.start.localTime;
+                        var time1=moment(time,"HH:mm:ss").format("hh:mm A");
                         console.log("Time value :::::"+time);
                         if(time===null || "")
                         {
