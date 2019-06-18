@@ -239,7 +239,7 @@ function displayApiData() {
             }
             // p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
             //Added the date and time by jyoti
-            p.html("<br>" + "Date: " + date1 +","+ "  " + time1 + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
+            p.html("<br>"  + date1 +","+ "  " + time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
             p.prepend(linkName);
             mapButton.text("Locate on map");
             p.append(mapButton);
