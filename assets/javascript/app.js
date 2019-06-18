@@ -200,7 +200,7 @@ function displayApiData() {
                         var time1=moment(time,"HH:mm:ss").format("hh:mm A");
                         console.log("Time value :::::"+time);
                         
-                        var time1=moment(time,"HH:mm:ss").format("hh:mm:ss A");
+                        var time1=moment(time,"HH:mm:ss").format("hh:mm A");
                         console.log("Time::::"+time1);
                         // p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
                        //Added the date and time by jyoti
