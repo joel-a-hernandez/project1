@@ -174,7 +174,7 @@ function displayApiData() {
             //  Turns event names into links to ticketmaster.
             var linkName = $("<a>");
             linkName.attr("href", tickets);
-            linkName.text("Name: " + name);
+            linkName.text(name);
             linkName.attr("target","_blank")
             console.log(tickets);
             
@@ -229,9 +229,13 @@ function displayApiData() {
                         //Added the date and time by jyoti
                         // p.html("Date: " + date1 + "<br>" + "Time: " + time1 + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
                         titleDiv.addClass("event-title")
-                        titleDiv.html("Name: " + response.events[i].name + "<br>");
-                        mapButton.text("Locate on map");
-                        p.prepend(titleDiv);
+                        titleDiv.html(response.events[i].name + "<br>");
+                        infoDiv.addClass("info-text")
+                        infoDiv.html(date1 + "<br>"  + time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
+                        mapButton.text("Locate on Map");
+                        // p.prepend(titleDiv);
+                        p.prepend(linkName);
+                        p.append(infoDiv);
                         p.append(mapButton);
                         p.addClass("text col-6")
                         eventRow.append(p);
@@ -252,14 +256,14 @@ function displayApiData() {
             }
             // p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
             //Added the date and time by jyoti
-            p.html("<br>" + "Date: " + date1 +","+ "  " + time1 + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
-            p.prepend(linkName);
-            mapButton.text("Locate on map");
-            p.append(mapButton);
-            p.addClass("text col-6")
-            eventRow.append(p);
-            eventDiv.append(eventRow);
-            $("#eventArea").prepend(eventDiv);
+            // p.html("<br>"  + date1 +","+ "  " + time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
+            // p.prepend(linkName);
+            // mapButton.text("Locate on map");
+            // p.append(mapButton);
+            // p.addClass("text col-6")
+            // eventRow.append(p);
+            // eventDiv.append(eventRow);
+            // $("#eventArea").prepend(eventDiv);
 
 
         }
