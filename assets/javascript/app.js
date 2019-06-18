@@ -124,9 +124,9 @@ function displayApiData() {
     var startDate = $("#startDate").val().trim();
     // Added a code to check  statdate and end date 
     var endDate = $("#endDate").val().trim();
-    console.log(startDate);
-    console.log(endDate);
-    var queryURL = "https://app.ticketmaster.com/discovery/v2/events?size=10&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0&locale=*&city=" + location + "";
+    console.log("Gettomg start-date value::" + startDate);
+    console.log("Getting end-date value::" + endDate);
+    var queryURL = "https://app.ticketmaster.com/discovery/v2/events?size=10&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0&locale=*&city=" + location + "&startDateTime=" + startDate + "T12:59:06-05:00&endDateTime=" + endDate + "T12:00:00Z";
     // &localStartDateTime=" + startDate + ""
     // locale=*&city=" + location + "
     $.ajax({
@@ -153,7 +153,7 @@ function displayApiData() {
             //  Turns event names into links to ticketmaster.
             var linkName = $("<a>");
             linkName.attr("href", tickets);
-            linkName.text("Name: " + name);
+            linkName.text(name);
             linkName.attr("target","_blank")
             console.log(tickets);
             
@@ -193,13 +193,15 @@ function displayApiData() {
                         // added a class to the button by Jyoti
                         mapButton.addClass("map-button");
                         mapButton.attr("id", i);
-                        // var date=response.events[i].dates.start.localDate;
-                        // var time=response.events[i].dates.start.localTime;
-                        // var time1=moment(time,"HH:mm:ss").format("hh:mm A");
-                        // console.log("Time value :::::"+time);
+                        var date=response.events[i].dates.start.localDate;
+                        // moment($("#train-start").val(),"HH:mm").format("HH:mm");
+                        console.log(date);
+                        var time=response.events[i].dates.start.localTime;
+                        var time1=moment(time,"HH:mm:ss").format("hh:mm A");
+                        console.log("Time value :::::"+time);
                         
-                        // var time1=moment(time,"HH:mm:ss").format("hh:mm:ss A");
-                        // console.log("Time::::"+time1);
+                        var time1=moment(time,"HH:mm:ss").format("hh:mm A");
+                        console.log("Time::::"+time1);
                         // p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
                        //Added the date and time by jyoti
                     //    p.html(response.events[i].name + "<br>"  + date1 + "<br>"  + time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
@@ -237,7 +239,7 @@ function displayApiData() {
             }
             // p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
             //Added the date and time by jyoti
-            p.html("<br>" + "Date: " + date1 +","+ "  " + time1 + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
+            p.html("<br>"  + date1 +","+ "  " + time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
             p.prepend(linkName);
             mapButton.text("Locate on map");
             p.append(mapButton);
