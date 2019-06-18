@@ -181,7 +181,7 @@ function displayApiData() {
                         // p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
                        //Added the date and time by jyoti
                        p.html(response.events[i].name + "<br>"  + date1 + "<br>"  + time1 + "<br>"  + response.events[i]._embedded.venues[0].name + "<br>")
-                        mapButton.text("Locate on map");
+                        mapButton.text("Locate on Map");
                         p.append(mapButton);
                         p.addClass("text col-6")
                         eventRow.append(p);
