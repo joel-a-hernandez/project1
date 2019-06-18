@@ -5,6 +5,8 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.4"></script>
+
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -81,6 +83,13 @@
        openconnection(location);
         // initMap();
     });
+
+    // api-key 6e073e0368c858a67d411bf72c04e73e
+    var placesAutocomplete = places({
+    appId: 'YNEAL4UMZ8',
+    apiKey: '6e073e0368c858a67d411bf72c04e73e',
+    container: document.querySelector('#city')
+  });
     
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaVsTVa6zgCnSikWoTfAh-MN4efnZ0ivs"async defer></script>

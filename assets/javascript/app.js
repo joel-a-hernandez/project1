@@ -12,6 +12,7 @@ function openconnection(location) {
 }
 var map;
 var eventObj;
+var markerArr = [];
 function initMap(latLng) {
     map = new google.maps.Map(document.getElementById('mapArea'), {
         center: latLng,
@@ -87,16 +88,27 @@ $(document).on("click", ".map-button", function (event) {
           });
         var marker = new google.maps.Marker({
             position: myLatLng,
+            // animation:google.maps.Animation.BOUNCE,
             map: map,
             title: eventAddress,
             draggable: true,
             center: myLatLng,
         });
+        map.setCenter(marker.getPosition())
+        markerArr.push(infowindow);
         google.maps.event.addListener(marker,'click', function(e) {
-                infowindow.open(map, marker);
+            for (let i = 0; i < markerArr.length; i++) {
+                markerArr[i].close();
+            }
+            infowindow.open(map, marker);
+            var pos = map.getZoom();
+             map.setZoom(10);
+            map.setCenter(marker.getPosition());
+            window.setTimeout(function() {map.setZoom(pos);},3000);   
+            
           
           });
-        //   infowindow.close();
+        
           
     });
 });
@@ -111,8 +123,11 @@ function getMap() {
 
 function displayApiData() {
     var location = $("#userInput").val().trim();
-    var startDate = $("#start").val().trim();
+    var startDate = $("#startDate").val().trim();
+    // Added a code to check  statdate and end date 
+    var endDate=$("#endDate").val().trim();
     console.log(startDate);
+    console.log(endDate);
     var queryURL = "https://app.ticketmaster.com/discovery/v2/events?size=10&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0&locale=*&city=" + location + "";
     // &localStartDateTime=" + startDate + ""
     // locale=*&city=" + location + "
@@ -156,6 +171,12 @@ function displayApiData() {
                         console.log("DAte Format::"+date1);
                         var time=response.events[i].dates.start.localTime;
                         var time1=moment(time,"HH:mm:ss").format("hh:mm A");
+                        console.log("Time value :::::"+time);
+                        if(time===null || "")
+                        {
+                            time="00:00:00";
+                        }
+                        var time1=moment(time,"HH:mm:ss").format("hh:mm:ss A");
                         console.log("Time::::"+time1);
                         // p.html("Name: " + response.events[i].name + "<br>" + "Date: " + response.events[i].dates.start.localDate + "<br>" + "Time: " + response.events[i].dates.start.localTime + "<br>" + "Venue: " + response.events[i]._embedded.venues[0].name + "<br>")
                        //Added the date and time by jyoti
