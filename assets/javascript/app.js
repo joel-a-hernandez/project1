@@ -124,9 +124,9 @@ function displayApiData() {
     var startDate = $("#startDate").val().trim();
     // Added a code to check  statdate and end date 
     var endDate = $("#endDate").val().trim();
-    console.log(startDate);
-    console.log(endDate);
-    var queryURL = "https://app.ticketmaster.com/discovery/v2/events?size=10&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0&locale=*&city=" + location + "";
+    console.log("Gettomg start-date value::" + startDate);
+    console.log("Getting end-date value::" + endDate);
+    var queryURL = "https://app.ticketmaster.com/discovery/v2/events?size=10&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0&locale=*&city=" + location + "&startDateTime=" + startDate + "T12:59:06-05:00&endDateTime=" + endDate + "T12:00:00Z";
     // &localStartDateTime=" + startDate + ""
     // locale=*&city=" + location + "
     $.ajax({
@@ -194,8 +194,7 @@ function displayApiData() {
                         mapButton.attr("id", i);
                         var date=response.events[i].dates.start.localDate;
                         // moment($("#train-start").val(),"HH:mm").format("HH:mm");
-                        var date1=moment(date,"YYYY-MM-DD").format("ddd, MMMM do");
-                        console.log("DAte Format::"+date1);
+                        console.log(date);
                         var time=response.events[i].dates.start.localTime;
                         var time1=moment(time,"HH:mm:ss").format("hh:mm A");
                         console.log("Time value :::::"+time);
