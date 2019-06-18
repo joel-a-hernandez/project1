@@ -28,13 +28,14 @@
 
 <body>
 
+
         <header id="home">
 
                 <div class="container text-center">
                         
                     <!-- <h1 id="headerText"><span><b>Placeholder</b>Text</span></h1> -->
-                    <h1 class="headerText">Placeholder</h1>
-                    <h3 id="subText">Travel Plans Begin Here</h3>
+                    <h1 class="headerText">Travel Plans Begin Here</h1>
+                    <h3 id="subText">Make the most of your trip and find the best events</h3>
                     <a class="btn btn-info"" href="#title" role="button">Start Your Search</a>
                    
                 </div>
@@ -52,22 +53,24 @@
         <div class="row">
             <div class="col" id="startDate">
                 <label for="start">Start date:</label>
-
-                <input type="date" id="start" name="trip-start" value="YYYY-MM-DD" min="2019-06-13" max="2020-06-13">
+<!-- modified the startDate id and endDate id by jyoti -->
+                <input type="date" id="startDate" name="trip-start" value="YYYY-MM-DD" min="2019-06-13" max="2020-06-13">
             </div>
 
             <div class="col" id="endDate">
                 <label for="start">End Date:</label>
 
-                <input type="date" id="end" name="trip-start" value="YYYY-MM-DD" min="2019-06-31" max="2020-06-13">
+                <input type="date" id="endDate" name="trip-end" value="YYYY-MM-DD" min="2019-06-31" max="2020-06-13">
             </div>
             
         </div>
 
     </div>
-    
-       <form class="city-input text-center">
-            <input type="text" id="userInput" placeholder="Search Your City Here">
+    <!-- Added form name to check the input value to be empty -->
+    <!-- Added a inside the form -->
+       <form  name="form1" class="city-input text-center">
+            <p id="error-input" ></p>
+            <input name="text1" type="text" id="userInput" placeholder="Search Your City Here">
             <!-- <button type="submit" id="submit-btn" class="btn btn-light">Submit</button> -->
        </br>
             <button type="submit" id="submit-btn" class="btn btn-info">Submit</button>
@@ -85,6 +88,16 @@
             </div>
                 
             </div>
+            </div>
+
+                <!-- add footer -->
+       <footer class="page-footer fluid">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3 text-light">© 2019 Copyright
+            </div>
+    
+        </footer>
 
     
 
