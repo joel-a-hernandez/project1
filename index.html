@@ -65,9 +65,11 @@
         </div>
 
     </div>
-    
-       <form class="city-input text-center">
-            <input type="text" id="userInput" placeholder="Search Your City Here">
+    <!-- Added form name to check the input value to be empty -->
+    <!-- Added a inside the form -->
+       <form  name="form1" class="city-input text-center">
+            <p id="error-input" ></p>
+            <input name="text1" type="text" id="userInput" placeholder="Search Your City Here">
             <!-- <button type="submit" id="submit-btn" class="btn btn-light">Submit</button> -->
        </br>
             <button type="submit" id="submit-btn" class="btn btn-info">Submit</button>

@@ -76,3 +76,9 @@ form input {
     margin-bottom: 10px;
   }
 
+  /* Added a property by jyoti  to display the error msg when a text field is empty*/
+ #error-input{
+    text-align:center;
+    font-weight: bold;
+ }
+
