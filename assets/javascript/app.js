@@ -153,7 +153,7 @@ function displayApiData() {
             //  Turns event names into links to ticketmaster.
             var linkName = $("<a>");
             linkName.attr("href", tickets);
-            linkName.text("Name: " + name);
+            linkName.text(name);
             linkName.attr("target","_blank")
             console.log(tickets);
             
