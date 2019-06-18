@@ -43,6 +43,14 @@ form input {
    
 }
 
+.info-text {
+    color: grey;
+    padding-bottom: 10px;
+}
+.event-title{
+    font-weight: bold;
+}
+
 
 #userInput{
     text-align: center;
