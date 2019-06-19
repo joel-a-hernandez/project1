@@ -41,15 +41,57 @@ $(document).on("click", "#submit-btn", function (event) {
     $("#error-input").empty();
 
     //Added by Jyoti
-    var empty = document.forms["form1"]["text1"].value;
+    var locempty = document.forms["form1"]["text1"].value;
+    console.log(locempty);
+    var startempty = $("#startDate").val().trim();
+    console.log(startempty);
+    var endempty=$("#endDate").val().trim();
+    console.log(endempty);
+    var p = $("<p>");
+    p.text("*Please Enter the City");
+    p.css("color", "red");
+    
+    var pstart=$("<p>");
+    pstart.text("*Please select the Start date");
+    pstart.css("color", "red");
+    
+     var pend=$("<p>");
+     pend.text("*Please select the End Date");
+     pend.css("color", "red");
+     
 
-    if (empty === "") {
-        var p = $("<p>");
-        p.text("Please Enter the City");
-        p.css("color", "red");
+    if (locempty === "" && startempty === "" && endempty === "" ) {
         $("#error-input").append(p);
-
+        $("#start-error").append(pstart);
+        $("#end-error").append(pend);
     }
+    else if(locempty === "" &&  startempty ===""){
+        $("#error-input").append(p);
+        $("#start-error").append(pstart);
+    }
+    else if(startempty === "" && endempty === ""){
+        
+        $("#start-error").append(pstart);
+        $("#end-error").append(pend);
+        
+    }
+    else if(endempty === "" &&  locempty === ""){
+        
+        $("#end-error").append(pend);
+        $("#error-input").append(p);
+    }
+        else if(locempty=== "")
+        {
+            $("#error-input").append(p);
+        }
+        else if(startempty === "")
+        {
+            $("#start-error").append(pstart);
+        }
+        else if(endempty === ""){
+            $("#end-error").append(pend);
+        }
+       
     else {
         getMap();
         displayApiData();
