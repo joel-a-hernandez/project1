@@ -42,7 +42,8 @@ $(document).on("click", "#submit-btn", function (event) {
     $("#error-input").empty();
 
     //Added by Jyoti
-    var locempty = document.forms["form1"]["text1"].value;
+    // var locempty = document.forms["form1"]["text1"].value;
+    var locempty=$("#userInput").val();
     console.log(locempty);
     var startempty = $("#startDate").val().trim();
     console.log(startempty);
@@ -225,10 +226,11 @@ function displayApiData() {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
+        // console.log(xhr.status)
         eventObj = response._embedded;
         var response = response._embedded;
-             
-        // opening of for loop
+        //  Added to a code to check for if any events are present in a particular starrtdate and end date 
+        //  opening of for loop
         for (var i = 0; i < response.events.length; i++) {
             console.log(response.events[i]);
             // display the event and images
