@@ -76,7 +76,7 @@ form input {
     height:500px;
     width:400px;
     background-color: transparent;
-    margin-left:20px;
+    /* margin-left:20px; */
     margin-top:20px;
     top: 15%;
     position: -webkit-sticky;
@@ -149,6 +149,16 @@ form input {
  }
  #displaydateerror{
     font-weight:bold;
+ }
+.view-more-div {
+    text-align: center;
+}
+ #view-more-button {
+    background-color: #15a2b8;
+    color: white;
+    border-color: #15a2b8;
+    border-radius: 0.25rem;
+    padding: .375rem .75rem;
  }
 /* overwrite the css property for the dropdown */
  
