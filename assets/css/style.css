@@ -31,6 +31,7 @@
 .city-input{
     margin-top: 50px;
     margin-bottom: 50px;
+    align-content: center;
     
 }
 
@@ -43,6 +44,8 @@ form input {
     width: 40%;
     padding: 10px;
     margin-bottom: 20px;
+    align-content: center;
+    
    
 }
 
@@ -63,6 +66,9 @@ form input {
     text-align: center;
     /* Added by Jyoti for displaying the dropdown in search */
     width:40%;
+    align-content: center;
+
+
 }
 /* Added by Jyoti for the map height and width */
 #mapArea.col {
@@ -82,6 +88,12 @@ form input {
     /* height: 200%; */
     margin: 0;
     padding: 0;
+
+  }
+  .form-inline{
+  display: inline-block;
+  text-align: center;
+  width:100%;
 
   }
 
@@ -148,3 +160,29 @@ form input {
      margin-right:400px;
      margin-top:-8px;
  } */
+
+ .active-cyan-2 input[type=text]:focus:not([readonly]) {
+    border-bottom: 1px solid #15a2b8;
+    box-shadow: 0 1px 0 0 #15a2b8;
+    }
+    .active-cyan input[type=text] {
+    border-bottom: 1px solid #15a2b8;
+    box-shadow: 0 1px 0 0 #15a2b8;
+    width:40%;
+    }
+    .active-cyan .fa, .active-cyan-2 .fa {
+    color: #15a2b8;
+    }
+    /* .form-control{
+        align-content: center;
+    }
+    .display{
+        display: block;
+        text-align: center;
+    } */
+    
+
+    #footer {
+        background-color: #15a2b8;
+    }
+    
