@@ -16,11 +16,13 @@
     letter-spacing: 1px;
 }
 
+
 #subText{
     padding-bottom: 50px;
     letter-spacing: 1px;
     color: gray
 }
+
 
 #title{
     margin-top: 50px;
@@ -34,6 +36,7 @@
     
 }
 
+
 #eventArea{
     padding-bottom: 40px;
 }
@@ -43,7 +46,7 @@ form input {
     width: 40%;
     padding: 10px;
     margin-bottom: 20px;
-   
+     
 }
 
 .link-name{
@@ -62,13 +65,14 @@ form input {
 #userInput{
     text-align: center;
 }
+
 /* Added by Jyoti for the map height and width */
 #mapArea.col {
     align-content: center;
     height:500px;
     width:400px;
     background-color: transparent;
-    margin-left:20px;
+    /* margin-left:20px; */
     margin-top:20px;
     top: 15%;
     position: -webkit-sticky;
@@ -121,4 +125,6 @@ form input {
      padding: 20px;
      width: 100%;
  }
+
+ /* Media Queries Start Here */
 
