@@ -1,3 +1,25 @@
+// Creates firebase refference.
+const firebaseConfig = {
+    apiKey: "AIzaSyDlrxw6U4xrfWQI_ff-T9Sn3FWLk-9n3Sk",
+    authDomain: "eatdrinktravel-25d2f.firebaseapp.com",
+    databaseURL: "https://eatdrinktravel-25d2f.firebaseio.com",
+    projectId: "eatdrinktravel-25d2f",
+    storageBucket: "eatdrinktravel-25d2f.appspot.com",
+    messagingSenderId: "855598110418",
+    appId: "1:855598110418:web:8fe153607ff7c6ec"
+  };
+
+// Initializes Firebase.
+firebase.initializeApp(firebaseConfig);
+// firebase variable
+var dataRef = firebase.database();
+
+
+
+
+
+
+
 // create a open function for calling Ajax
 function openconnection(location) {
     var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=AIzaSyAaVsTVa6zgCnSikWoTfAh-MN4efnZ0ivs";
@@ -42,104 +64,20 @@ $(document).on("click", "#submit-btn", function (event) {
     $("#error-input").empty();
 
     //Added by Jyoti
-    var locempty = document.forms["form1"]["text1"].value;
-    console.log(locempty);
-    var startempty = $("#startDate").val().trim();
-    console.log(startempty);
-    var endempty=$("#endDate").val().trim();
-    console.log(endempty);
-    var p = $("<p>");
-    p.text("*Please Enter the City");
-    p.css("color", "red");
-    
-    var pstart=$("<p>");
-    pstart.text("*Please select the Start date");
-    pstart.css("color", "red");
-   
-     var pend=$("<p>");
-     pend.text("*Please select the End Date");
-     pend.css("color", "red");
-        if (locempty === "" && startempty === "" && endempty === "" ) {
-            $("#error-input").empty();
-            $("#start-error").empty();
-            $("#end-error").empty();
-         $("#error-input").append(p);
-        $("#start-error").append(pstart);
-        $("#end-error").append(pend);
-       
+    var empty = document.forms["form1"]["text1"].value;
 
-    }
-    else if(locempty === "" &&  startempty ===""){
-       $("#error-input").empty();
-        $("#start-error").empty();
-        $("#end-error").empty();
+    if (empty === "") {
+        var p = $("<p>");
+        p.text("*Please Enter the City");
+        p.css("color", "red");
         $("#error-input").append(p);
-        $("#start-error").append(pstart);
-        
-    }
-    else if(startempty === "" && endempty === ""){
-        $("#error-input").empty();
-        $("#start-error").empty();
-        $("#end-error").empty();
-        $("#start-error").append(pstart);
-        $("#end-error").append(pend);
-       
-        
-        
-    }
-    else if(endempty === "" &&  locempty === ""){
-        $("#error-input").empty();
-        $("#end-error").empty();
-        $("#start-error").empty();
-        $("#end-error").append(pend);
-        $("#error-input").append(p);
-       
-    }
-        else if(locempty=== "")
-        {
-            $("#error-input").empty();
-            $("#start-error").empty();
-            $("#end-error").empty();
-            $("#error-input").append(p);
-           
-        }
-        else if(startempty === "")
-        {
-            $("#start-error").empty();
-            $("#error-input").empty();
-            $("#end-error").empty();
-            $("#start-error").append(pstart);
 
-           
-
-        }
-        else if(endempty === ""){
-            $("#start-error").empty();
-            $("#error-input").empty();
-            $("#end-error").empty();
-            $("#end-error").append(pend);
-           
-        }
-        else if(startempty<endempty){
-            $("#start-error").empty();
-            $("#error-input").empty();
-            $("#end-error").empty();
-            $("#displaydateerror").empty();
-            getMap();
-            displayApiData();
-        }
-        else{
-            $("#displaydateerror").css("color", "red");
-            $("#displaydateerror").text("Start date should be less then End date");
-        }
-       
-    // else {
-    //     $("#start-error").empty();
-    //     $("#error-input").empty();
-    //     $("#end-error").empty();
-    //     getMap();
-    //     displayApiData();
-    // }
+    }
+    else {
+        getMap();
+        displayApiData();
+        favoriteCity();
+    }
 
 
 });
@@ -209,6 +147,15 @@ function displayApiData() {
     $(".hide-row").show();
     var location = $("#userInput").val().trim();
     var startDate = $("#startDate").val().trim();
+    var endDate = $("#endDate").val().trim();
+    // Sets firebase.
+
+    // firebase code to set data.
+    dataRef.ref().push({
+        City: location,
+        startdate: startDate,
+        enddate: endDate
+    });
     // Added a code to check  statdate and end date 
     var endDate = $("#endDate").val().trim();
     console.log("Gettomg start-date value::" + startDate);
@@ -222,10 +169,10 @@ function displayApiData() {
     }).then(function (response) {
         eventObj = response._embedded;
         var response = response._embedded;
-             
+        console.log(response);
         // opening of for loop
         for (var i = 0; i < response.events.length; i++) {
-            console.log(response.events[i]);
+            console.log(response.events[i])
             // display the event and images
             var eventDiv = $("<div>");
             eventDiv.addClass("event-div")
@@ -264,7 +211,6 @@ function displayApiData() {
             mapButton.addClass("map-button");
             mapButton.attr("id", i);
             var localdate = response.events[i].dates.start.localDate;
-            console.log("Date before conversion::::"+localdate);
             date1 = moment(localdate, "YYYY-MM-DD").format("ddd, MMMM Do");
             // moment($("#train-start").val(),"HH:mm").format("HH:mm");
             console.log("DAte Format::" + date1);
@@ -343,6 +289,21 @@ function displayApiData() {
 // closing of main for loop
     });
 }
+// firebase watcher  /  most visited logic.
+function favoriteCity(){
+    var city = $("#userInput").val().trim()
+    favCity = 0;
+    dataRef.ref().on("value", function(snapshot) {
+        snapshot.forEach(function(child){
+            if(child.val().City === city){
+                favCity++
+            }
+        })
+        console.log(city + " Has been searched " +favCity + " times.");
+
+    })
+    
+    };
 //Added by Jyoti
 function geocodePlaceId(geocoder, map, infowindow) {
     console.log("LocalArray in set MAp()" + JSON.stringify(locArr));
