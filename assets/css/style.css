@@ -61,6 +61,8 @@ form input {
 
 #userInput{
     text-align: center;
+    /* Added by Jyoti for displaying the dropdown in search */
+    width:40%;
 }
 /* Added by Jyoti for the map height and width */
 #mapArea.col {
@@ -111,14 +113,35 @@ form input {
   }
 
   /* Added a property by jyoti  to display the error msg when a text field is empty*/
+ #start-error{
+    text-align:center;
+    font-weight: bold;
+    font-size: 10px;
+ }
+ #end-error{
+    text-align:center;
+    font-weight: bold;
+    font-size: 10px;
+ }
+
  #error-input{
     text-align:center;
     font-weight: bold;
  }
+
 
  .page-footer{
      background-color: #15a2b8;
      padding: 20px;
      width: 100%;
  }
-
+/* overwrite the css property for the dropdown */
+ 
+ /* .ap-dropdown-menu{
+     width:40%;
+     margin-left:400px; 
+ }
+ .ap-input-icon{
+     margin-right:400px;
+     margin-top:-8px;
+ } */
