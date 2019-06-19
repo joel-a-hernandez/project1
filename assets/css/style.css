@@ -129,12 +129,12 @@ form input {
  #start-error{
     text-align:center;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 15px;
  }
  #end-error{
     text-align:center;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 15px;
  }
 
  #error-input{
@@ -164,8 +164,9 @@ form input {
 /* overwrite the css property for the dropdown  */
  
   .ap-dropdown-menu{
-     width:40%;
-     margin-left:400px; 
+        width:40%;
+     margin:auto;
+     position:static!important; 
  }
  .ap-input-icon{
      margin-right:400px;
