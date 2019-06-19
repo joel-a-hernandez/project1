@@ -135,6 +135,9 @@ form input {
      padding: 20px;
      width: 100%;
  }
+ #displaydateerror{
+    font-weight:bold;
+ }
 /* overwrite the css property for the dropdown */
  
  /* .ap-dropdown-menu{
