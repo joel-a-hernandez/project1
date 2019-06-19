@@ -55,46 +55,91 @@ $(document).on("click", "#submit-btn", function (event) {
     var pstart=$("<p>");
     pstart.text("*Please select the Start date");
     pstart.css("color", "red");
-    
+   
      var pend=$("<p>");
      pend.text("*Please select the End Date");
      pend.css("color", "red");
         if (locempty === "" && startempty === "" && endempty === "" ) {
-        $("#error-input").append(p);
+            $("#error-input").empty();
+            $("#start-error").empty();
+            $("#end-error").empty();
+         $("#error-input").append(p);
         $("#start-error").append(pstart);
         $("#end-error").append(pend);
+       
+
     }
     else if(locempty === "" &&  startempty ===""){
+       $("#error-input").empty();
+        $("#start-error").empty();
+        $("#end-error").empty();
         $("#error-input").append(p);
         $("#start-error").append(pstart);
+        
     }
     else if(startempty === "" && endempty === ""){
-        
+        $("#error-input").empty();
+        $("#start-error").empty();
+        $("#end-error").empty();
         $("#start-error").append(pstart);
         $("#end-error").append(pend);
+       
+        
         
     }
     else if(endempty === "" &&  locempty === ""){
-        
+        $("#error-input").empty();
+        $("#end-error").empty();
+        $("#start-error").empty();
         $("#end-error").append(pend);
         $("#error-input").append(p);
+       
     }
         else if(locempty=== "")
         {
+            $("#error-input").empty();
+            $("#start-error").empty();
+            $("#end-error").empty();
             $("#error-input").append(p);
+           
         }
         else if(startempty === "")
         {
+            $("#start-error").empty();
+            $("#error-input").empty();
+            $("#end-error").empty();
             $("#start-error").append(pstart);
+
+           
+
         }
         else if(endempty === ""){
+            $("#start-error").empty();
+            $("#error-input").empty();
+            $("#end-error").empty();
             $("#end-error").append(pend);
+           
+        }
+        else if(startempty<endempty){
+            $("#start-error").empty();
+            $("#error-input").empty();
+            $("#end-error").empty();
+            $("#displaydateerror").empty();
+            getMap();
+            displayApiData();
+        }
+        else{
+            $("#displaydateerror").css("color", "red");
+            $("#displaydateerror").text("Start date should be less then End date");
         }
        
-    else {
-        getMap();
-        displayApiData();
-    }
+    // else {
+    //     $("#start-error").empty();
+    //     $("#error-input").empty();
+    //     $("#end-error").empty();
+    //     getMap();
+    //     displayApiData();
+    // }
 
 
 });
@@ -177,10 +222,10 @@ function displayApiData() {
     }).then(function (response) {
         eventObj = response._embedded;
         var response = response._embedded;
-        console.log(response);
+             
         // opening of for loop
         for (var i = 0; i < response.events.length; i++) {
-            console.log(response.events[i])
+            console.log(response.events[i]);
             // display the event and images
             var eventDiv = $("<div>");
             eventDiv.addClass("event-div")
