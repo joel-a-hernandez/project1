@@ -145,6 +145,7 @@ $(document).on("click", "#submit-btn", function (event) {
 
 });
 var locArr = [];
+var marker;
 //Created this event to locate on the map by click on the button
 // code added by Jyoti
 $(document).on("click", ".map-button", function (event) {
@@ -171,7 +172,10 @@ $(document).on("click", ".map-button", function (event) {
         var infowindow = new google.maps.InfoWindow({
             content: contentString
         });
-        var marker = new google.maps.Marker({
+        if(marker){
+            marker.setMap(null)
+        }
+        marker = new google.maps.Marker({
             position: myLatLng,
             // animation:google.maps.Animation.BOUNCE,
             map: map,
@@ -362,12 +366,14 @@ function displayApiData() {
 //Added by Jyoti
 function geocodePlaceId(geocoder, map, infowindow) {
     console.log("LocalArray in set MAp()" + JSON.stringify(locArr));
+    var marker;
     for (var i = 0; i < locArr.length; i++) {
         var address = JSON.stringify(locArr[i].line1);
         console.log("Inside the marker " + JSON.stringify(address));
         //displaying the lat and lang according to the event display.
         var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyAaVsTVa6zgCnSikWoTfAh-MN4efnZ0ivs";
         console.log(queryURL);
+        debugger;
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -382,17 +388,17 @@ function geocodePlaceId(geocoder, map, infowindow) {
                         map.setZoom(11);
                         console.log("=================Center", response[0].geometry.location)
                         map.setCenter(response[0].geometry.location);
-                        var marker = new google.maps.Marker({
+                        marker = new google.maps.Marker({
                             map: map,
                             position: response[0].geometry.location
                         });
                         infowindow.setContent(response[0].formatted_address);
                         infowindow.open(map, marker);
                     } else {
-                        window.alert('No results found');
+                        html.write('No results found');
                     }
                 } else {
-                    window.alert('Geocoder failed due to: ' + status);
+                    html.write('Geocoder failed due to: ' + status);
                 }
             });
         });
