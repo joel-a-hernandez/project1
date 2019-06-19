@@ -67,6 +67,7 @@ form input {
     /* Added by Jyoti for displaying the dropdown in search */
     width:40%;
     align-content: center;
+    color: grey;
 
 
 }
@@ -195,4 +196,18 @@ form input {
     #footer {
         background-color: #15a2b8;
     }
-    
+    #startDate, #endDate {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 2px solid #15a2b8;
+        color: grey;
+    }
+    #start-search-button, #submit-btn {
+    background-color: #15a2b8!important;
+}
+
+#start-1, #end-1 {
+    color: #15a2b8;
+    font-weight: bold;
+}
