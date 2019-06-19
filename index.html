@@ -80,12 +80,17 @@
     <!-- Added a inside the form -->
     
         
-      <!-- Added a code form  name="form1" class="city-input text-center">
+       <!-- Added a code form  name="form1" class="city-input text-center"> --> 
+       
+     
+    <form name="form1" class="form-inline md-form form-sm active-cyan active-cyan-2 mt-2 city-input " >
             <p id="error-input" ></p>
-            <input name="text1" type="text" id="userInput" placeholder="Search Your City Here">
-             <button type="submit" id="submit-btn" class="btn btn-light">Submit</button> -->
-       <!-- </br> for drop down 
-       <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.4"></script>
+            <!-- <i class="fas fa-search active " aria-hidden="true" ></i> -->
+            <input class="form-control" type="text" id="userInput" placeholder="Search Your City Here"
+              aria-label="Search">
+              </br>
+              <!-- Added code for drop down -->
+              <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.4"></script>
        <script>
        var placesAutocomplete = places({
        appId: 'plAH0VJM8HHI',
@@ -98,20 +103,10 @@
     }
   }).configure({
     type: 'city',
-    style:false,
     debug: true,
     aroundLatLngViaIP: false,
   });
-  </script> -->  
-     <!-- <button type="submit" id="submit-btn" class="btn btn-info">Submit</button>
-    </form> -->
-    
-    <form name="form1" class="form-inline md-form form-sm active-cyan active-cyan-2 mt-2 city-input " >
-            <p id="error-input" ></p>
-            <i class="fas fa-search active " aria-hidden="true" ></i>
-            <input class="form-control" type="text" id="userInput" placeholder="Search Your City Here"
-              aria-label="Search">
-            </br>
+  </script>
             <button type="submit" id="submit-btn" class="btn btn-info">Submit</button>
           </form>
          
