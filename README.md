@@ -1,24 +1,24 @@
-Project #1 – Group 6
+###Project #1 – Group 6
 
 https://evening-peak-61602.herokuapp.com/
 
-Team Members
+###Team Members
 
 
 
-Project Description:
+###Project Description:
 
 
-Motivation:
+###Motivation:
 
 
-Tech/framework used:
-HTML, CSS, JavaScript, JQuery, AJAX
+###Tech/framework used:
+HTML, CSS, JavaScript, JQuery
 
-New Technology used:
+#New Technology used:
 
 
-API Reference:
+#API Reference:
 Google Maps 
 
 ticketmaster
