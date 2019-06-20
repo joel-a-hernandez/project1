@@ -71,6 +71,7 @@ form input {
     /* Added by Jyoti for displaying the dropdown in search */
     width:40%;
     align-content: center;
+    color: grey;
 
 
 }
@@ -133,12 +134,12 @@ form input {
  #start-error{
     text-align:center;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 15px;
  }
  #end-error{
     text-align:center;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 15px;
  }
 
  #error-input{
@@ -165,16 +166,17 @@ form input {
     border-radius: 0.25rem;
     padding: .375rem .75rem;
  }
-/* overwrite the css property for the dropdown */
+/* overwrite the css property for the dropdown  */
  
- /* .ap-dropdown-menu{
-     width:40%;
-     margin-left:400px; 
+  .ap-dropdown-menu{
+        width:40%;
+     margin:auto;
+     position:static!important; 
  }
  .ap-input-icon{
      margin-right:400px;
      margin-top:-8px;
- } */
+ }
 
  .active-cyan-2 input[type=text]:focus:not([readonly]) {
     border-bottom: 1px solid #15a2b8;
@@ -200,5 +202,27 @@ form input {
     #footer {
         background-color: #15a2b8;
     }
+<<<<<<< HEAD
     
  /* Media Queries Start Here */
+=======
+    #startDate, #endDate {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 2px solid #15a2b8;
+        color: grey;
+    }
+    #start-search-button, #submit-btn {
+    background-color: #15a2b8!important;
+}
+
+#start-1, #end-1 {
+    color: #15a2b8;
+    font-weight: bold;
+}
+
+.fas {
+    color: #15a2b8;
+}
+>>>>>>> master

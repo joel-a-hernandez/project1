@@ -44,7 +44,7 @@
                     <!-- <h1 id="headerText"><span><b>Placeholder</b>Text</span></h1> -->
                     <h1 class="headerText">Travel Plans Begin Here</h1>
                     <h3 id="subText">Make the most of your trip and find the best events</h3>
-                    <a class="btn btn-info" href="#title" role="button">Start Your Search</a>
+                    <a id="start-search-button" class="btn btn-info" href="#title" role="button">Start Your Search</a>
                     
                    
                 </div>
@@ -63,14 +63,14 @@
         <div class="row" id="dateRow">
             <div class="col" id="start-Date">
               <p id="start-error"></p>               
-                <label for="start">Start date:</label>
+                <label id="start-1"for="start">Start Date:</label>
 <!-- modified the startDate id and endDate id by jyoti -->
                 <input type="date" id="startDate" name="trip-start" value="" min="2019-06-13" max="2020-06-13"><br>
             </div>
             <p id="displaydateerror"></p>
             <div class="col" id="end-Date">
                     <p id="end-error" ></p>
-                <label for="start">End Date:</label>
+                <label id="end-1" for="start">End Date:</label>
                  <input type="date" id="endDate" name="trip-end" value="" min="2019-06-13" max="2020-06-13">
             </div>
             
@@ -81,12 +81,17 @@
     <!-- Added a inside the form -->
     
         
-      <!-- Added a code form  name="form1" class="city-input text-center">
+       <!-- Added a code form  name="form1" class="city-input text-center"> --> 
+       
+     
+    <form name="form1" class="form-inline md-form form-sm active-cyan active-cyan-2 mt-2 city-input " >
             <p id="error-input" ></p>
-            <input name="text1" type="text" id="userInput" placeholder="Search Your City Here">
-             <button type="submit" id="submit-btn" class="btn btn-light">Submit</button> -->
-       <!-- </br> for drop down 
-       <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.4"></script>
+            <!-- <i class="fas fa-search active " aria-hidden="true" ></i> -->
+            <input class="form-control" type="text" id="userInput" placeholder="Search Your City Here"
+              aria-label="Search">
+              </br>
+              <!-- Added code for drop down -->
+              <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.4"></script>
        <script>
        var placesAutocomplete = places({
        appId: 'plAH0VJM8HHI',
@@ -99,20 +104,10 @@
     }
   }).configure({
     type: 'city',
-    style:false,
     debug: true,
     aroundLatLngViaIP: false,
   });
-  </script> -->  
-     <!-- <button type="submit" id="submit-btn" class="btn btn-info">Submit</button>
-    </form> -->
-    
-    <form name="form1" class="form-inline md-form form-sm active-cyan active-cyan-2 mt-2 city-input " >
-            <p id="error-input" ></p>
-            <i class="fas fa-search active " aria-hidden="true" ></i>
-            <input class="form-control" type="text" id="userInput" placeholder="Search Your City Here"
-              aria-label="Search">
-            </br>
+  </script>
             <button type="submit" id="submit-btn" class="btn btn-info">Submit</button>
         </form>
 
