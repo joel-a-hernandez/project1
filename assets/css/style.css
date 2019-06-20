@@ -225,7 +225,7 @@ form input {
 }
 /* Styling for Favorite City */
 #favorite-city{
-    font-weight: 100;
+    font-weight: bold;
     font-size: 24px;
     color: rgba(0, 0, 0, 0.651);
     margin-left: 60%;
