@@ -223,3 +223,14 @@ form input {
 .fas {
     color: #15a2b8;
 }
+/* Styling for Favorite City */
+#favorite-city{
+    font-weight: bold;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.651);
+    margin-left: 60%;
+    top: 8.5%;
+    position: -webkit-sticky;
+    position: sticky !important;
+    
+}

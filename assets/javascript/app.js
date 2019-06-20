@@ -1,3 +1,19 @@
+// Creates firebase refference.
+const firebaseConfig = {
+    apiKey: "AIzaSyDlrxw6U4xrfWQI_ff-T9Sn3FWLk-9n3Sk",
+    authDomain: "eatdrinktravel-25d2f.firebaseapp.com",
+    databaseURL: "https://eatdrinktravel-25d2f.firebaseio.com",
+    projectId: "eatdrinktravel-25d2f",
+    storageBucket: "eatdrinktravel-25d2f.appspot.com",
+    messagingSenderId: "855598110418",
+    appId: "1:855598110418:web:8fe153607ff7c6ec"
+  };
+// Initializes Firebase.
+firebase.initializeApp(firebaseConfig);
+
+// firebase variable
+var dataRef = firebase.database();
+
 // create a open function for calling Ajax
 function openconnection(location) {
     var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=AIzaSyAaVsTVa6zgCnSikWoTfAh-MN4efnZ0ivs";
@@ -49,6 +65,14 @@ $(document).on("click", "#submit-btn", function (event) {
     console.log(startempty);
     var endempty=$("#endDate").val().trim();
     console.log(endempty);
+
+    // firebase code to set data.
+    dataRef.ref().push({
+        City: locempty,
+        startdate: startempty,
+        enddate: endempty
+    });
+
     var p = $("<p>");
     p.text("*Please Enter the City");
     p.css("color", "red");
@@ -128,6 +152,7 @@ $(document).on("click", "#submit-btn", function (event) {
             $("#displaydateerror").empty();
             getMap();
             displayApiData();
+            favoriteCity();
         }
         else{
             $("#displaydateerror").css("color", "red");
@@ -202,8 +227,22 @@ $(document).on("click", ".map-button", function (event) {
     });
 });
 
-// Function for dumping the JSON content for each button into the div
+// firebase most visited logic.
+function favoriteCity(){
+    var city = $("#userInput").val().trim()
+    favCity = 0;
+    dataRef.ref().on("value", function(snapshot) {
+        snapshot.forEach(function(child){
+            if(child.val().City === city){
+                favCity++
+            }
+        })
+        console.log(city + " Has been searched " +favCity + " times.");
+        $("#favorite-city").text(city + " has been searched " +favCity + " times!")
+    })
+};
 
+// Function for dumping the JSON content for each button into the div
 function getMap() {
     var location = $("#userInput").val();
     console.log("Location:::" + location);
